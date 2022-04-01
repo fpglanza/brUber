@@ -1,17 +1,4 @@
 <h1>Modifica Post</h1>
-<% if @post.errors.any? %>
-  <h2>Ghe xe pettini:</h2>
-  <ul>
-    <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
 
-<%= form_with(model: @post, local: true)  do |f| %>
-  <p><%= f.label :title %></p>
-  <p><%= f.text_field :title %></p>
-  <p><%= f.label :description %></p>
-  <p><%= f.text_area :description %></p>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>
+<%= link_to 'Torna Indrìo', posts_path %>
