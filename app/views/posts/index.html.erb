@@ -1,0 +1,28 @@
+<h1>Showing Collection of Posts</h1>
+<table>
+  <tr>
+    <th><%= link_to "new post", new_post_path %></th>
+  </tr>
+</table>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th col>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post|  %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.description %></td>
+        <td><%= link_to "show", post_path(post) %></td>
+        <td><%= link_to "edit", edit_post_path(post) %></td>
+        <td><%= button_to "delete", post_path(post), method: :delete, onclick: "return confirm('Are you sure?')" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,7 @@
+<h1>Showing Post Details</h1>
+<p><strong>Title:</strong> <%= @post.title %></p>
+<p><strong>Description:</strong> <%= @post.description %></p>
+
+<%= link_to "edit", edit_post_path(@post) %> | 
+<%= button_to "delete", post_path(@post), method: :delete, onclick: "return confirm('Are you sure?')" %>
+<%= link_to 'back to index', posts_path %>
