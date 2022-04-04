@@ -1,6 +1,6 @@
 <%= render 'shared/errors', obj: @user %>
 <div class="px-4 my-5">
-  <%= form_with(model: @user, local: true)  do |f| %>
+  <%= form_with(model: @user, local: true, data: { turbo: false })  do |f| %>
     <div class="form-group row">
       <%= f.label :username, class: "col-2 col-form-lable" %>
     </div>
@@ -23,7 +23,7 @@
     </div>
     <br>
     <div>
-      <%= f.submit class:"btn btn-primary btn-lg px-4 gap-3" %>
+      <%= f.submit "Iscrivite", class:"btn btn-primary btn-lg px-4 gap-3" %>
     </div>
   <% end %>
   <div class="mb-3">
