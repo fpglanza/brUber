@@ -10,10 +10,12 @@
           <div class="card-header font-italic">
             Post by <%= @post.user.nil? ? User.first.username : @post.user.username %>
           </div>
-          <div class="card-body">
+          <div class="card-body" style="display: inline;">
             <div class="card-text text-left"><%= simple_format(@post.description) %></div>
-            <%= link_to "Edit", edit_post_path(@post), class: "btn btn-outline-info" %>
-            <%= link_to "Delete", post_path(@post), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Are you sure?"} %>
+            <div style="display: flex; justify-content: center;">
+              <%= link_to "Edit", edit_post_path(@post), class: "btn btn-outline-info" %>
+              <%= button_to "Delete", post_path(@post), class: "btn btn-outline-danger", method: :delete, onclick: "return confirm('Are you sure?')" %>
+            </div>
           </div>
           <div class="card-footer text-muted">
             <small>Created <%= time_ago_in_words(@post.created_at) %> ago, 
