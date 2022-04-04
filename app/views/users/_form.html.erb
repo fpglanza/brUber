@@ -23,7 +23,7 @@
     </div>
     <br>
     <div>
-      <%= f.submit "Iscrivite", class:"btn btn-primary btn-lg px-4 gap-3" %>
+      <%= f.submit(@user.new_record? ? "Iscrivite" : "Aggiorna", class:"btn btn-primary btn-lg px-4 gap-3") %>
     </div>
   <% end %>
   <div class="mb-3">
