@@ -1,10 +1,13 @@
-<% if @post.errors.any? %>
-  <div class="alert alert-danger" role="alert">
-    <h4 class="alert-heading"> ghe xe un pettìn: </h4>
+<% if obj.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <h4 class="alert-heading"> Ghe xe almanco un pettìn: </h4>
     <ul>
-      <% @post.errors.full_messages.each do |msg| %>
+      <% obj.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-  </ul>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <%# <span aria-hidden="true">&times;</span> %>
+      </button>
+    </ul>
   </div>
 <% end %>

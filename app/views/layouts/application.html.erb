@@ -52,12 +52,28 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form> %>
-        <a class="nav-link active" aria-current="page" href="#">Sign In</a>
+        <% if logged_in? %>
+          <%= link_to current_user.username, user_path(current_user), class: "nav-link" %> |
+        <% else %>
+          <a class="nav-link active" aria-current="page" href="/signup">Sign Up</a> |
+        <% end %>
+        <% if logged_in? %>
+          <%= link_to 'Sign Out', signout_path, class: "nav-link", data: {
+            turbo_method: :delete
+          } %>
+        <% else %>
+          <a class="nav-link active" aria-current="page" href="/signin">Sign In</a>
+        <% end %>
       </div>
     </div>
   </nav>
+    <br>
+    <br>
+    <br>
     <%= render 'layouts/messages' %>
-    <%= yield %>
+    <div class="mx-auto">
+      <%= yield %>
+    </div>
     <footer class="footer mt-auto py-3 bg-light fixed-bottom text-center">
       <div class="container">
         <span class="text-muted">bruber© xe un marchio che no ti pol copiarlo.</span>
